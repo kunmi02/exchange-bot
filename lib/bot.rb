@@ -45,7 +45,7 @@ class Bot
           else
             base = splitted_string[1].scan(/\d+|\D+/)
             current = splitted_string[3].scan(/\d+|\D+/)
-            rate = Exchangerate.new(base_currency = base[1])
+            rate = Exchangerate.new(base[1])
             rates = rate.get_latest_currency_conversion_rate
             rates[current[1]]
             conversion = rate.calculate_conversion(base[0], rates[current[1]])
