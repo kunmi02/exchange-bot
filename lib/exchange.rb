@@ -1,22 +1,23 @@
-require "uri"
-require "net/http"
+# frozen_string_literal: true
+
+require 'uri'
+require 'net/http'
 require 'json'
 require_relative 'requester'
 
 class Exchangerate
   include Requester
 
-  def initialize(base_currency=nil, target_currency=nil, amount=nil)
+  def initialize(base_currency = nil, target_currency = nil, amount = nil)
     @token = '73e652270cb72a930df06bf1'
-    @base_currency = base_currency if !base_currency.nil?
-    @target_currency = target_currency if !target_currency.nil?
-    @amount = amount if !amount.nil?
+    @base_currency = base_currency unless base_currency.nil?
+    @target_currency = target_currency unless target_currency.nil?
+    @amount = amount unless amount.nil?
   end
 
   # not available on free versions
   def get_currency_conversion_rate
-    response = Requester.call_api("https://v6.exchangerate-api.com/v6/#{@token}/pair/EUR/GBP/#{@amount}")
-    response
+    Requester.call_api("https://v6.exchangerate-api.com/v6/#{@token}/pair/EUR/GBP/#{@amount}")
   end
 
   def get_latest_currency_conversion_rate
@@ -102,4 +103,3 @@ class Exchangerate
     ZAR	South African Rand	South African "
   end
 end
-
