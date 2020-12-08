@@ -22,11 +22,10 @@ class Exchangerate
   def get_latest_currency_conversion_rate
     response = Requester.call_api("https://v6.exchangerate-api.com/v6/#{@token}/latest/#{@base_currency}")
     response['conversion_rates']
-    # puts response['conversion_rates']['EUR']
   end
 
   def calculate_conversion(base_amount, target_amount)
-
+    base_amount.to_f * target_amount.to_f
   end
 
   def supported_countries
@@ -104,6 +103,3 @@ class Exchangerate
   end
 end
 
-# exchanger = Exchangerate.new('EUR')
-# # exchanger.get_currency_conversion_rate
-# exchanger.get_latest_currency_conversion_rate
