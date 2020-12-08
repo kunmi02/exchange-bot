@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # module to request make a HTTP call to the external API
 module Requester
   def self.call_api(address)

@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# rubocop:disable Naming/AccessorMethodName, Metrics/MethodLength
 require 'uri'
 require 'net/http'
 require 'json'
@@ -103,3 +102,5 @@ class Exchangerate
     ZAR	South African Rand	South African "
   end
 end
+
+# rubocop:enable Naming/AccessorMethodName, Metrics/MethodLength

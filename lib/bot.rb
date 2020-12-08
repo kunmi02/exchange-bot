@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# rubocop:disable Metrics/CyclomaticComplexity, Metrics/BlockLength, Metrics/AbcSize, Metrics/MethodLength, Layout/LineLength
 require 'telegram/bot'
 require_relative 'motive'
 require_relative 'exchange'
@@ -27,11 +26,11 @@ class Bot
           if splitted_string.length <= 1
             bot.api.send_message(chat_id: message.chat.id, text: "Hi #{message.from.first_name} I do not understand what you mean \n but if you intend to know a currency rate \n format should be like this E.g /rate USD", date: message.date)
           else
-            rate = Exchangerate.new(base_currency = splitted_string[1])
+            rate = Exchangerate.new(splitted_string[1])
             rates = rate.get_latest_currency_conversion_rate
             all_rates = ''
-            rates.each do |key, value|
-              all_rates += " #{key} = #{value} \n"
+            rates.each do |key, val|
+              all_rates += " #{key} = #{val} \n"
             end
             bot.api.send_message(chat_id: message.chat.id, text: all_rates.to_s, date: message.date)
           end
@@ -58,3 +57,5 @@ class Bot
     end
   end
 end
+
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/BlockLength, Metrics/AbcSize, Metrics/MethodLength, Layout/LineLength
