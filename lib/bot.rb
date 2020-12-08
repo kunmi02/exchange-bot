@@ -47,11 +47,11 @@ class Bot
         else
           base = splitted_string[1].scan(/\d+|\D+/)
           current = splitted_string[3].scan(/\d+|\D+/)
-          p '*********'
-          p base
-          p current
-          p '**********'
-        bot.api.send_message(chat_id: message.chat.id, text: "Hi #{message.from.first_name} Welcome to Exchange bot", date: message.date)
+          rate = Exchangerate.new(base_currency=base[1])
+          rates = rate.get_latest_currency_conversion_rate
+          rates[current[1]]
+          conversion = rate.calculate_conversion(base[0], rates[current[1]])
+        bot.api.send_message(chat_id: message.chat.id, text: "Hi #{message.from.first_name} The conversion is #{conversion}#{current[1]}", date: message.date)
         end
       else bot.api.send_message(chat_id: message.chat.id, text: "Invalid entry, #{message.from.first_name}, you need to use  /start,  /stop , /motivate, /exchange 1USD to 1AUD")
       end
