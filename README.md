@@ -1,7 +1,7 @@
 # exchange-bot
-A twitter bot that helps with currency conversion once mentioned in a tweet
+A Telegram bot that helps with currency conversion
 
-> A twitter bot that helps with currency conversion once mentioned in a tweet
+> A telegram bot that helps with currency conversion 
 
 ![microverse](https://camo.githubusercontent.com/3a5835d4f56c57cec85939ac345e43fef164c178/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4d6963726f76657273652d626c756576696f6c6574)
 
@@ -17,12 +17,9 @@ if you feel down and needs to get motivated. Exchange bot can help with some mot
 2. Make sure you have Ruby and Bundle installed.
 3. Open terminal from the root directory of the cloned project.
 4. Run `bundle install` to install all packages.
-5. Go to web.telegram.com
-6. Create an account with your mobile number
-7. Create a new bot by chatting up botfather, then follow the instructions.
-8. A token will be generated for your bot which you need to copy and keep safe
-9. search for the name of your bot.
-12. Click on the bot and send `/start` to get instructions on how to run the bot 
+5. Go to web.telegram.org
+6. Search for exchange bot
+7. Type `/start`  and send to get instructions on how to interact with the bot
 
 ![screenshot](assets/screen2.png)
 
